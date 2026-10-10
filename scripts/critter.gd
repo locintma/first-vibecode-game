@@ -1,3 +1,4 @@
+# Implemented directly by OpenCode Big Pickle
 extends Node2D
 class_name Critter
 

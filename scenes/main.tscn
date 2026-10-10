@@ -1,7 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://haven_main_scene"]
+[gd_scene load_steps=5 format=3 uid="uid://haven_main_scene"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_main"]
 [ext_resource type="Script" path="res://scripts/critter.gd" id="2_critter"]
+
+[sub_resource type="Gradient" id="Gradient_fairy_glow"]
+offsets = PackedFloat32Array(0, 0.4, 1)
+colors = PackedColorArray(1, 0.95, 0.78, 1, 1, 0.87, 0.6, 0.5, 1, 0.78, 0.45, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fairy_glow"]
+gradient = SubResource("Gradient_fairy_glow")
+width = 96
+height = 96
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_main")
@@ -36,6 +48,27 @@ color = Color(0.35, 0.62, 0.42, 1)
 
 [node name="FairyLights" type="Node2D" parent="HavenRoom"]
 position = Vector2(0, 150)
+
+[node name="GlowLeft" type="PointLight2D" parent="HavenRoom/FairyLights"]
+position = Vector2(130, 40)
+scale = Vector2(0.9, 0.9)
+color = Color(1, 0.85, 0.58, 1)
+energy = 0.9
+texture = SubResource("GradientTexture2D_fairy_glow")
+
+[node name="GlowCenter" type="PointLight2D" parent="HavenRoom/FairyLights"]
+position = Vector2(270, 10)
+scale = Vector2(1.2, 1.2)
+color = Color(1, 0.93, 0.72, 1)
+energy = 1.1
+texture = SubResource("GradientTexture2D_fairy_glow")
+
+[node name="GlowRight" type="PointLight2D" parent="HavenRoom/FairyLights"]
+position = Vector2(410, 45)
+scale = Vector2(0.85, 0.85)
+color = Color(1, 0.8, 0.5, 1)
+energy = 0.85
+texture = SubResource("GradientTexture2D_fairy_glow")
 
 [node name="SunbeamParticles" type="CPUParticles2D" parent="HavenRoom"]
 position = Vector2(270, 200)
