@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Big Pickle",
+    "role": "Creative Gameplay & Culinary Minigame Specialist",
+    "model_id": "anthropic/opencode/big-pickle",
+    "verdict": "Big Pickle verdict: the Vietnamese recipes are a solid lineup, but make Pho Bo\u2019s broth simmer, Banh Mi\u2019s crunch, and Ca Phe Trung\u2019s creamy mixing mechanically distinct, with clear heat/timing feedback in `baking.gd`. Gameplay tip: add a live doneness meter and reward the ideal removal window with a juicy \u201cPerfect!\u201d burst."
+  },
+  {
+    "name": "MiMo-V2.6 Flash Free",
+    "role": "Physics & Micro-Animation Specialist",
+    "model_id": "anthropic/opencode/mimo-v2.6-flash-free",
+    "verdict": "Verdict: **Keep it**\u2014the sequence gives a clear impact read, with near-volume-preserving deformation (`1.15\u00d70.85 \u2248 0.98`, `0.9\u00d71.1 \u2248 0.99`) and a clean inverse overshoot. Use a snappy ease-out for the squish, a brief spring/ease-in-out for the pop, and a softer settle; keep the pivot centered and finish exactly at `Vector2.ONE`."
+  },
+  {
+    "name": "Muse Spark 1.3 Free",
+    "role": "Visual Arts & Haven Atmosphere Director",
+    "model_id": "anthropic/opencode/muse-spark-1.3-contributor-free",
+    "verdict": "Muse Spark verdict: the woven rug, wicker basket, monstera, fairy lights, and floating sunbeams create a tactile, storybook-cozy haven with polished visual depth. The palette\u2014oat, honey, terracotta, sage, and soft gold\u2014feels harmonious and inviting; slightly restrained bloom would keep the lights magical without sacrificing warmth."
+  },
+  {
+    "name": "Nemotron 3.5 Lightning Free",
+    "role": "Systems Architect & Test Gate Lead",
+    "model_id": "anthropic/opencode/nemotron-3.5-lightning-free",
+    "verdict": "I can\u2019t verify `run_tests.sh` or `test_playthrough.gd` because their contents and a test-run transcript weren\u2019t provided. The zero-regression gate is reliable only if shell/runner failures propagate nonzero, Godot runs headlessly without swallowed errors, and the playthrough asserts both core progression paths and successful completion."
+  },
+  {
+    "name": "Ling 3.1 Flash Free",
+    "role": "Audio, Event Interaction & Economy Lead",
+    "model_id": "anthropic/opencode/ling-3.1-flash-free",
+    "verdict": "For `first-vibecode-game`, funnel `petted`, `fed`, `baked`, and `item_collected` through one idempotent event/reward handler, with coin updates recorded as amount, reason, and resulting balance to prevent duplicate payouts. Add a short ascending coin-chime on successful `item_collected`, paired with a brief gold UI pulse and optional haptic\u2014so reward feedback ripples across audio, visuals, and touch."
+  },
+  {
+    "name": "LongCat 2.5 Preview Free",
+    "role": "Personality & Narrative State Auditor",
+    "model_id": "anthropic/opencode/longcat-2.5-preview-free",
+    "verdict": "LongCat verdict: **not yet convincingly emotionally responsive**\u2014mood and personality need to visibly affect behavior, decisions, and reactions over time. I\u2019d need the relevant code or playable build to confirm whether the states are distinct, persistent, and coherently expressed."
+  },
+  {
+    "name": "Step-5 Preview Free",
+    "role": "Game Loop & Gathering Walk Architect",
+    "model_id": "anthropic/opencode/step-5-preview-free",
+    "verdict": "Recommendation: let each foraged flower permanently add a watercolor bloom to the meadow, while updating the player\u2019s flower journal, so exploration visibly transforms the scene and rewards discovery. Keep interaction radii forgiving to preserve a relaxed, child-friendly foraging pace."
+  },
+  {
+    "name": "Space Bunny Free",
+    "role": "Web Optimization & Deployment Officer",
+    "model_id": "anthropic/opencode/space-bunny-free",
+    "verdict": "\ud83d\udc30 Space Bunny verdict: **conditionally approved**\u2014Godot 4.3 with `gl_compatibility` is suitable for web, using versioned HTML/JS/WASM/PCK assets, correct MIME/CORS headers, and tested browser compatibility without unsupported native extensions or thread dependencies. Export is **GO** after CI validates the packaged build and core gameplay across current Chrome, Firefox, and Safari."
+  }
+]
