@@ -1,6 +1,9 @@
 extends Node2D
 
-@onready var critter: Critter = $Critter
+# Use base Godot types in @onready annotations — custom class_name types (Critter,
+# BakingUI, GatheringWalk) are not resolvable in headless -s mode because the global
+# class registry is not built. Runtime behavior is identical via duck typing.
+@onready var critter: Node2D = $Critter
 @onready var toast_banner: Label = $HUD/ToastBanner
 @onready var mood_bar: ProgressBar = $HUD/TopBar/HBox/StatsVBox/MoodHBox/MoodBar
 @onready var hunger_bar: ProgressBar = $HUD/TopBar/HBox/StatsVBox/HungerHBox/HungerBar
@@ -11,8 +14,8 @@ extends Node2D
 @onready var bake_button: Button = $HUD/BottomBar/BakeButton
 @onready var walk_button: Button = $HUD/BottomBar/WalkButton
 
-@onready var baking_ui: BakingUI = $Overlays/BakingUI
-@onready var gathering_walk: GatheringWalk = $Overlays/GatheringWalk
+@onready var baking_ui: Control = $Overlays/BakingUI
+@onready var gathering_walk: Control = $Overlays/GatheringWalk
 
 var coins: int = 100
 var inventory: Array[String] = ["Crispy Banh Mi"]
