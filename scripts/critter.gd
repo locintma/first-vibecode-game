@@ -37,6 +37,10 @@ func _ready() -> void:
 	setup_particles()
 	start_idle_loops()
 
+func start_idle_loops() -> void:
+	breath_time = 0.0
+	blink_timer = randf_range(2.5, 6.5)
+
 ## Step 1 & 2: Normalize origin to the feet baseline and eliminate padding offset
 func apply_padding_normalization() -> void:
 	if sprite:
