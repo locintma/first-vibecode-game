@@ -62,9 +62,25 @@ func _init() -> void:
 		fails += 1
 		print("FAIL: Gathering walk failed to find item or update journal")
 
+	# Test 4: Main scene hierarchy and HUD nodes resolution
+	var main_scene = load("res://scenes/main.tscn")
+	var main_instance = main_scene.instantiate()
+	root.add_child(main_instance)
+	var mb = main_instance.get_node_or_null("HUD/TopBar/HBox/StatsVBox/MoodHBox/MoodBar")
+	var hb = main_instance.get_node_or_null("HUD/TopBar/HBox/StatsVBox/HungerHBox/HungerBar")
+	var cl = main_instance.get_node_or_null("HUD/TopBar/HBox/CoinsLabel")
+	var sl = main_instance.get_node_or_null("HUD/TopBar/HBox/StatsVBox/StateLabel")
+	if mb and hb and cl and sl:
+		passes += 1
+		print("PASS: Main scene and all HUD node paths resolve correctly")
+	else:
+		fails += 1
+		print("FAIL: Main scene HUD node paths failed to resolve. mb=%s hb=%s cl=%s sl=%s" % [mb, hb, cl, sl])
+
 	critter.free()
 	baking.free()
 	walk.free()
+	main_instance.queue_free()
 
 	print("Summary: PASS: %d, FAIL: %d" % [passes, fails])
 	if fails > 0:

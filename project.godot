@@ -2,15 +2,16 @@ config_version=5
 
 [application]
 
-config/name="First VibeCode Game - Cozy Critter Haven"
+config/name="Cozy Critter Haven"
 config/features=PackedStringArray("4.3")
 run/main_scene="res://scenes/main.tscn"
 
 [display]
 
-window/size/viewport_width=540
-window/size/viewport_height=960
+window/size/viewport_width=480
+window/size/viewport_height=640
 window/stretch/mode="canvas_items"
+window/stretch/aspect="keep"
 window/handheld/orientation=1
 
 [rendering]
