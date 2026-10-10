@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var critter: Critter = $Critter
 @onready var toast_banner: Label = $HUD/ToastBanner
+@onready var toast_backdrop: Panel = $HUD/ToastBackdrop
 @onready var mood_bar: ProgressBar = $HUD/TopBar/HBox/StatsVBox/MoodHBox/MoodBar
 @onready var hunger_bar: ProgressBar = $HUD/TopBar/HBox/StatsVBox/HungerHBox/HungerBar
 @onready var coins_label: Label = $HUD/TopBar/HBox/CoinsLabel
@@ -16,6 +17,8 @@ extends Node2D
 
 var coins: int = 100
 var inventory: Array[String] = ["Crispy Banh Mi"]
+
+var _toast_tween: Tween
 
 func _ready() -> void:
 	if critter:
@@ -54,16 +57,28 @@ func update_hud() -> void:
 		coins_label.text = "%d Coins" % coins
 
 func show_toast(msg: String) -> void:
-	if toast_banner:
-		toast_banner.text = msg
-		toast_banner.visible = true
-		var t = create_tween()
-		t.tween_interval(3.0)
-		t.tween_property(toast_banner, "modulate:a", 0.0, 0.5)
-		t.tween_callback(func():
-			toast_banner.visible = false
-			toast_banner.modulate.a = 1.0
-		)
+	if not toast_banner:
+		return
+	if _toast_tween and _toast_tween.is_valid():
+		_toast_tween.kill()
+	toast_banner.text = msg
+	toast_banner.visible = true
+	toast_banner.modulate.a = 1.0
+	if toast_backdrop:
+		toast_backdrop.visible = true
+		toast_backdrop.modulate.a = 1.0
+	_toast_tween = create_tween()
+	_toast_tween.tween_interval(3.0)
+	_toast_tween.tween_property(toast_banner, "modulate:a", 0.0, 0.5)
+	if toast_backdrop:
+		_toast_tween.parallel().tween_property(toast_backdrop, "modulate:a", 0.0, 0.5)
+	_toast_tween.tween_callback(func():
+		toast_banner.visible = false
+		toast_banner.modulate.a = 1.0
+		if toast_backdrop:
+			toast_backdrop.visible = false
+			toast_backdrop.modulate.a = 1.0
+	)
 
 func _on_critter_petted(_delta: float) -> void:
 	update_hud()
