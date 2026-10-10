@@ -1,6 +1,90 @@
-[gd_scene load_steps=2 format=3 uid="uid://baking_ui_scene"]
+[gd_scene load_steps=10 format=3 uid="uid://baking_ui_scene"]
 
 [ext_resource type="Script" path="res://scripts/ui/baking.gd" id="1_baking"]
+[ext_resource type="Script" path="res://scripts/ui/food_sprite.gd" id="2_food"]
+
+[sub_resource type="StyleBoxFlat" id="SB_panel"]
+bg_color = Color(0.996, 0.973, 0.933, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.792, 0.643, 0.435, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_color = Color(0.29, 0.22, 0.13, 0.28)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="SB_card"]
+bg_color = Color(1, 0.988, 0.961, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.898, 0.831, 0.706, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="SB_card_sel"]
+bg_color = Color(1, 0.957, 0.882, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.918, 0.541, 0.271, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+content_margin_left = 3.0
+content_margin_top = 4.0
+content_margin_right = 3.0
+content_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="SB_apricot"]
+bg_color = Color(1, 0.639, 0.443, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_color = Color(0.596, 0.325, 0.157, 0.35)
+shadow_size = 5
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="SB_apricot_hover"]
+bg_color = Color(1, 0.702, 0.502, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_color = Color(0.596, 0.325, 0.157, 0.4)
+shadow_size = 7
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="SB_apricot_press"]
+bg_color = Color(0.878, 0.514, 0.345, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_color = Color(0.596, 0.325, 0.157, 0.22)
+shadow_size = 2
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="SB_apricot_off"]
+bg_color = Color(0.847, 0.788, 0.749, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
 
 [node name="BakingUI" type="Control"]
 layout_mode = 3
@@ -16,16 +100,17 @@ color = Color(0.1, 0.08, 0.06, 0.6)
 
 [node name="Panel" type="Panel" parent="."]
 offset_left = 30.0
-offset_top = 60.0
+offset_top = 50.0
 offset_right = 450.0
-offset_bottom = 580.0
+offset_bottom = 590.0
+theme_override_styles/panel = SubResource("SB_panel")
 
 [node name="VBox" type="VBoxContainer" parent="Panel"]
 offset_left = 20.0
-offset_top = 15.0
+offset_top = 16.0
 offset_right = 400.0
-offset_bottom = 505.0
-theme_override_constants/separation = 10
+offset_bottom = 524.0
+theme_override_constants/separation = 9
 
 [node name="Header" type="HBoxContainer" parent="Panel/VBox"]
 layout_mode = 2
@@ -33,6 +118,7 @@ layout_mode = 2
 [node name="Title" type="Label" parent="Panel/VBox/Header"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.365, 0.239, 0.125, 1)
 theme_override_font_sizes/font_size = 20
 text = "Cozy Vietnamese Bakery"
 horizontal_alignment = 1
@@ -40,6 +126,7 @@ horizontal_alignment = 1
 [node name="CloseButton" type="Button" parent="Panel/VBox/Header"]
 custom_minimum_size = Vector2(36, 36)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.365, 0.239, 0.125, 1)
 text = "X"
 
 [node name="RecipeList" type="HBoxContainer" parent="Panel/VBox"]
@@ -48,51 +135,168 @@ theme_override_constants/separation = 8
 alignment = 1
 
 [node name="BtnPho" type="Button" parent="Panel/VBox/RecipeList"]
-custom_minimum_size = Vector2(110, 42)
+custom_minimum_size = Vector2(118, 122)
 layout_mode = 2
+toggle_mode = true
+theme_override_styles/normal = SubResource("SB_card")
+theme_override_styles/hover = SubResource("SB_card")
+theme_override_styles/pressed = SubResource("SB_card_sel")
+theme_override_styles/focus = SubResource("SB_card")
+
+[node name="Box" type="VBoxContainer" parent="Panel/VBox/RecipeList/BtnPho"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 1
+
+[node name="Sprite" type="Control" parent="Panel/VBox/RecipeList/BtnPho/Box"]
+custom_minimum_size = Vector2(0, 84)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+script = ExtResource("2_food")
+dish = 0
+
+[node name="Label" type="Label" parent="Panel/VBox/RecipeList/BtnPho/Box"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.365, 0.239, 0.125, 1)
+theme_override_font_sizes/font_size = 12
 text = "Pho Bo"
+horizontal_alignment = 1
 
 [node name="BtnBanhMi" type="Button" parent="Panel/VBox/RecipeList"]
-custom_minimum_size = Vector2(110, 42)
+custom_minimum_size = Vector2(118, 122)
 layout_mode = 2
+toggle_mode = true
+theme_override_styles/normal = SubResource("SB_card")
+theme_override_styles/hover = SubResource("SB_card")
+theme_override_styles/pressed = SubResource("SB_card_sel")
+theme_override_styles/focus = SubResource("SB_card")
+
+[node name="Box" type="VBoxContainer" parent="Panel/VBox/RecipeList/BtnBanhMi"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 1
+
+[node name="Sprite" type="Control" parent="Panel/VBox/RecipeList/BtnBanhMi/Box"]
+custom_minimum_size = Vector2(0, 84)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+script = ExtResource("2_food")
+dish = 1
+
+[node name="Label" type="Label" parent="Panel/VBox/RecipeList/BtnBanhMi/Box"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.365, 0.239, 0.125, 1)
+theme_override_font_sizes/font_size = 12
 text = "Banh Mi"
+horizontal_alignment = 1
 
 [node name="BtnCaPhe" type="Button" parent="Panel/VBox/RecipeList"]
-custom_minimum_size = Vector2(110, 42)
+custom_minimum_size = Vector2(118, 122)
 layout_mode = 2
+toggle_mode = true
+theme_override_styles/normal = SubResource("SB_card")
+theme_override_styles/hover = SubResource("SB_card")
+theme_override_styles/pressed = SubResource("SB_card_sel")
+theme_override_styles/focus = SubResource("SB_card")
+
+[node name="Box" type="VBoxContainer" parent="Panel/VBox/RecipeList/BtnCaPhe"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 1
+
+[node name="Sprite" type="Control" parent="Panel/VBox/RecipeList/BtnCaPhe/Box"]
+custom_minimum_size = Vector2(0, 84)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+script = ExtResource("2_food")
+dish = 2
+
+[node name="Label" type="Label" parent="Panel/VBox/RecipeList/BtnCaPhe/Box"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.365, 0.239, 0.125, 1)
+theme_override_font_sizes/font_size = 12
 text = "Ca Phe"
+horizontal_alignment = 1
 
 [node name="RecipeDesc" type="Label" parent="Panel/VBox"]
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(0, 46)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.9, 0.85, 0.75, 1)
+theme_override_colors/font_color = Color(0.365, 0.239, 0.125, 1)
 theme_override_font_sizes/font_size = 14
 text = "Crispy golden baguette with pate & herbs"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
+[node name="BadgeRow" type="HBoxContainer" parent="Panel/VBox"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+theme_override_constants/separation = 5
+alignment = 1
+
 [node name="ProgressBar" type="ProgressBar" parent="Panel/VBox"]
-custom_minimum_size = Vector2(0, 16)
+custom_minimum_size = Vector2(0, 14)
 layout_mode = 2
 max_value = 100.0
 show_percentage = false
 
 [node name="StatusLabel" type="Label" parent="Panel/VBox"]
-custom_minimum_size = Vector2(0, 30)
+custom_minimum_size = Vector2(0, 26)
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.9, 0.5, 1)
+theme_override_colors/font_color = Color(0.478, 0.318, 0.157, 1)
+theme_override_font_sizes/font_size = 14
 text = "Choose a recipe and bake!"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="BakeButton" type="Button" parent="Panel/VBox"]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.988, 0.949, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.949, 0.898, 1)
+theme_override_colors/font_disabled_color = Color(0.941, 0.929, 0.918, 1)
 theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("SB_apricot")
+theme_override_styles/hover = SubResource("SB_apricot_hover")
+theme_override_styles/pressed = SubResource("SB_apricot_press")
+theme_override_styles/disabled = SubResource("SB_apricot_off")
+theme_override_styles/focus = SubResource("SB_apricot")
 text = "Bake to Golden Perfection"
 
 [node name="DoneButton" type="Button" parent="Panel/VBox"]
-custom_minimum_size = Vector2(0, 44)
+custom_minimum_size = Vector2(0, 42)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.478, 0.318, 0.157, 1)
 theme_override_font_sizes/font_size = 16
 text = "< Back to Haven"
