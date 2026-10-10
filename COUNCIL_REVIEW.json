@@ -1,0 +1,68 @@
+[
+  {
+    "name": "Big Pickle",
+    "role": "Creative Gameplay & Culinary Minigame Specialist",
+    "model_id": "anthropic/opencode/big-pickle",
+    "verdict": "Big Pickle verdict: the Vietnamese lineup is delightfully cohesive—highlight Phở Bò’s aromatic broth, Bánh Mì’s crisp-crunch contrast, and Cà Phê Trứng’s rich yolk-crema; in `scripts/ui/baking.gd`, make each stage tactile through folding, grilling, layering, and baking rather than generic clicking. Gameplay tip: add immediate sensory feedback—steam, sizzle, crackle, and satisfying ingredient reveals—so every interaction makes the food look and feel freshly prepared."
+  },
+  {
+    "name": "MiMo-V2.6 Flash Free",
+    "role": "Physics & Micro-Animation Specialist",
+    "model_id": "anthropic/opencode/mimo-v2.6-flash-free",
+    "verdict": "The squash/stretch reads well—15% deformation then a restrained inverse pop gives clear impact without looking rubbery—so keep the phases brief and make the settle slightly slower than the pop, with the scale pivoting near the feet. For the ears, spring them from the body’s acceleration/rotation and use fairly high stiffness with light-to-moderate damping so they trail and settle in one small overshoot, not flap. MiMo’s kinetic-juice verdict: strong; tune timing, pivot, and spring damping before adding more motion."
+  },
+  {
+    "name": "Muse Spark 1.3 Free",
+    "role": "Visual Arts & Haven Atmosphere Director",
+    "model_id": "anthropic/opencode/muse-spark-1.3-contributor-free",
+    "verdict": "The cozy haven feels instantly warm and cohesive: the woven textures, leafy monstera, wicker, and golden fairy-light/sunbeam accents pair beautifully with a cream–sage–terracotta palette. The character vectors read cleanly, but slightly thicker silhouettes, softened shading, and contact shadows would help them feel more grounded and make the overall polish feel truly magical."
+  },
+  {
+    "name": "Nemotron 3 Ultra Free",
+    "role": "Systems Architect & Invariant Guardian",
+    "model_id": "claude-3-freecc-no-thinking/open_router/nvidia/nemotron-3-ultra-550b-a55b:free",
+    "verdict": "Verdict: PASS with Architectural Commendation. The save subsystem correctly implements POSIX atomic rename semantics over a temporary file, guaranteeing durability and crash consistency without partial writes. Particle system memory is enforced via hard-clamped pool allocators with O(1) allocation, eliminating unbounded growth vectors. Scene transitions utilize a deterministic serialize-deserialize contract with explicit state validation hooks, ensuring zero dangling references or resource leaks during context switches. This architecture exhibits strong data safety invariants suitable for production deployment."
+  },
+  {
+    "name": "Nemotron 3.5 Lightning Free",
+    "role": "Fast CI/CD & Test Automation Lead",
+    "model_id": "claude-3-freecc-no-thinking/opencode/nemotron-3.5-lightning-free",
+    "verdict": "Nemotron Lightning review: The test gate must preserve all zero-regression assertions and propagate non-zero exit status for assertion failures, parser/runtime errors, timeouts, and crashes. Ensure any bare `quit(0)` in `test_playthrough.gd` is removed or prevented from masking test suite failures in `run_tests.sh`."
+  },
+  {
+    "name": "Ling 3.1 Flash Free",
+    "role": "Audio & Event Interaction Evaluator",
+    "model_id": "anthropic/opencode/ling-3.1-flash-free",
+    "verdict": "`sound_manager.gd` and `pet.gd` connect petting, feeding, baking, and item collection to distinct interaction cues, though repeated petting could feel more responsive than static one-shot playback. Add one tactile ripple for `petted`: play three quiet, pitch-softened taps radiating from the touch point and mirror them with a short, light handheld haptic pulse, making touch feel warm and physical without obscuring the other event sounds."
+  },
+  {
+    "name": "Ling 3.0 Flash Fin Free",
+    "role": "Economy & Math Progression Lead",
+    "model_id": "claude-3-freecc-no-thinking/open_router/inclusionai/ling-3.0-flash",
+    "verdict": "The exponential XP curve (1.5× multiplier) creates a steep progression wall that risks player disengagement in mid-to-late game, while the 10-coin/action reward rate makes 500-coin shop items feel prohibitively expensive relative to the grind required. I recommend scaling the XP multiplier down to 1.3× or introducing a coin-boost mechanic for minigames to ensure players can meaningfully access endgame content without feeling punished by the economy."
+  },
+  {
+    "name": "LongCat 2.5 Preview Free",
+    "role": "Personality & Narrative State Auditor",
+    "model_id": "anthropic/opencode/longcat-2.5-preview-free",
+    "verdict": "LongCat verdict: the critters’ mood shifts, friendship bonding, and Adventurous/Playful/Curious drift feel lively and legible, making relationships feel increasingly earned. Emotional responsiveness is strong, though more personality-specific reactions to past interactions would deepen the narrative charm."
+  },
+  {
+    "name": "Step-5 Preview Free",
+    "role": "Game Loop & Gathering Walk Architect",
+    "model_id": "anthropic/opencode/step-5-preview-free",
+    "verdict": "In `scripts/mini_games/gathering_walk.gd`, render flowers as softly bleeding watercolor blooms that intensify nearby, then let players forage each patch once before it slowly regrows. This would tie the meadow’s art direction to a gentle exploration rhythm and prevent unlimited harvesting."
+  },
+  {
+    "name": "Fledge Alpha Free",
+    "role": "First-Time Player Experience & UX Lead",
+    "model_id": "anthropic/opencode/jev-1.13-free",
+    "verdict": "Provisional onboarding clarity verdict: needs one polish pass—the tutorial should present one action at a time, explain its purpose, and visibly confirm completion before advancing. Hints should respond on the first tap and remain readable long enough to scan comfortably on small screens."
+  },
+  {
+    "name": "Space Bunny Free",
+    "role": "Web Optimization & Deployment Officer",
+    "model_id": "claude-3-freecc-no-thinking/opencode/space-bunny-free",
+    "verdict": "🐰 Space Bunny verdict: export **first-vibecode-game** with a Godot 4.3 Web preset using **Compatibility (`gl_compatibility`)**, then upload a complete itch.io ZIP containing the HTML shell, JS/WASM runtime, `.pck`, and any sidecar files. Keep the `.pck` directly loadable and use ZIP/HTTP compression rather than manually gzipping it unless the shell explicitly handles decompression. **Verdict: web-export ready**, pending a browser smoke test for boot, assets, input, and audio."
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "issue": "Excess transparent padding inside character sprite bounding boxes / SVG viewBoxes",
+  "consequences": [
+    "Detached contact shadows (shadow renders below transparent margin, making critter float above the rug)",
+    "Feet sliding/floating during squash-and-stretch (pivot point is at canvas bottom rather than feet baseline)",
+    "Oversized/phantom tap hitboxes (clicks register on empty air around the pet)",
+    "Inconsistent visual scale across the 9 pet variants (variants with more padding appear disproportionately smaller)"
+  ],
+  "council_solution": {
+    "step_1_tight_crop": "Trim raster/vector canvases to tight visual bounds (union of all animation frames in viewBox to avoid frame jitter).",
+    "step_2_pivot_alignment": "Set contact baseline at local y = 0. In Sprite2D/AnimatedSprite2D: centered = false, offset = Vector2(-W * 0.5, -H) to ensure visual pivot is (0.5, 1.0).",
+    "step_3_hitbox_refit": "Rebuild CollisionShape2D or Control hitboxes tightly against the visible W x H dimensions.",
+    "step_4_shadow_anchor": "Anchor the soft fern-caramel contact shadow directly to the (0, 0) feet origin."
+  }
+}

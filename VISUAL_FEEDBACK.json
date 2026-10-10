@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Muse Spark 1.3 Free",
+    "role": "Visual Arts & Haven Atmosphere Director",
+    "feedback": "Build the Cozy Haven Room around a focal triangle\u2014woven rug, monstera, and wicker basket\u2014with an oat-dominant backdrop, asymmetrical prop layering, and translucent amber sunbeams that feel suspended in dust rather than pasted onto the scene. Give all nine pets consistent silhouette weight and simplified geometry, but vary ear, tail, body, and marking shapes for thumbnail readability; use double catchlights selectively on eyes and upper-facing surfaces, avoiding equal gloss across every variant. Anchor each character with a soft fern-caramel contact shadow that widens and fades as elevation increases, balancing the \u201cfloating\u201d fantasy with believable weight. Use the palette near 60% oat, 25% fern, 10% caramel, and 5% amber, adding darker outline values if oat-on-oat details lose contrast."
+  },
+  {
+    "name": "MiMo-V2.6 Flash Free",
+    "role": "Kinetic Dynamics & Particle FX Physicist",
+    "feedback": "At cozy zoom, make window dust feel atmospheric rather than snowy: use 1\u20133 px soft motes at \u03b1 0.12\u20130.25, drifting diagonally at 2\u20138 px/s with gentle curl, mostly behind characters but with a few foreground motes for depth.  \nFor petting and feeding, use 6\u201312 px hearts at \u03b1 0.7\u20130.9 bursting upward/outward at 25\u201360 px/s, while 2\u20135 px crumb flecks at \u03b1 0.8\u20131.0 fall in lively 30\u201390 px/s arcs\u2014layer both above the interaction point but below the UI.  \nDream bubbles should be translucent 8\u201318 px shapes at \u03b1 0.25\u20130.45, rising at 4\u201312 px/s with soft lateral sway, whereas minigame sparkles should stay tiny at 2\u20136 px and \u03b1 0.35\u20130.7, floating at 3\u201310 px/s.  \nKeep textures feathered, use normal blending for dust and hearts, additive blending only for sparkles, and avoid dense emissions so every effect remains gentle and readable."
+  },
+  {
+    "name": "Big Pickle",
+    "role": "Culinary Visuals & Baking UI Specialist",
+    "feedback": "The Baking UI will feel warmer and more authentic with appetizing illustrated sprites: bubbling Pho Bo with delicate steam curls, golden-crusted Banh Mi scoring, and creamy Ca Phe Trung swirls. Replace raw completion text such as \u201cOK 5/1\u201d with mint-green checkmark pills for a cleaner, friendlier hierarchy. Style the Bake button in warm apricot with subtle highlights and a gently pressed state to make it inviting. On completion, add a celebratory starburst glow behind the dish, paired with tiny sparkles that emphasize freshness and achievement."
+  },
+  {
+    "name": "Step-5 Preview Free",
+    "role": "Watercolor Environment & Landscape Artist",
+    "feedback": "The Gathering Walk already feels like a gentle meadow, but depth will improve with pale, wet washes and low-contrast silhouettes in the distance, transitioning to warmer, denser forms in the foreground. Use layered translucent washes of lavender, sage, butter yellow, and muted coral, allowing controlled pigment blooms and softened contours to create watercolor color bleeding without muddying the path. Establish three clear planes: tall grass and collectibles in front, clustered wildflowers and leafy bushes in the middle, and faint butterflies and horizon shapes behind. Scatter flowers and bushes in organic drifts, nestle collectibles into tall grass with a subtle glint or petal cue, and give butterflies varied looping flight paths so the environment feels alive while keeping interactables readable."
+  },
+  {
+    "name": "Fledge Alpha Free",
+    "role": "UI Layout & Visual Legibility Lead",
+    "feedback": "1. **Hierarchy:** Treat the critter as the primary focal layer and reserve a top UI safe zone above its face and eyes, keeping toasts and tooltips visually above both.  \n2. **Toast layout:** Stack banners vertically with consistent padding and timing; anchor object notifications to the relevant edge with an 8\u201312 px offset and short leader line, then clamp them within the viewport.  \n3. **Placement preview:** Preserve the decoration\u2019s full silhouette with a soft ground shadow\u2014tinted green and check-marked when valid, muted red and warning-marked when invalid\u2014rather than relying on transparency alone.  \n4. **Small screens:** Use at least 14\u201316 px text, solid high-contrast badges with a 4.5:1 text-contrast ratio, redundant icons/labels instead of color-only cues, and reposition critical badges away from the critter rather than shrinking them."
+  }
+]
