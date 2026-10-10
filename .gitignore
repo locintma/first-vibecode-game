@@ -2,3 +2,10 @@
 *.import
 *.translation
 .ci_userdata/
+
+# Agent dev diagnostic / screenshot dumps
+_dev_*.gd
+shot_*.gd
+shot_*.png
+*.shot.png
+export_presets.cfg.tmp
