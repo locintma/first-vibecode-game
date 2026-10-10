@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://baking_ui_scene"]
+
+[ext_resource type="Script" path="res://scripts/ui/baking.gd" id="1_baking"]
+
+[node name="BakingUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_baking")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -200.0
+offset_right = 150.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Cozy Kitchen Bakery"
+horizontal_alignment = 1
+
+[node name="Recipe1" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "🍜 Steaming Pho Bo [✓ Ready]"
+
+[node name="Recipe2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "🥖 Crispy Banh Mi [✓ Ready]"
+
+[node name="Recipe3" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "☕ Warm Ca Phe Trung [✓ Ready]"
+
+[node name="BakeButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Bake Delicious Treat"

@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=3 uid="uid://haven_main_scene"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_main"]
+[ext_resource type="Script" path="res://scripts/critter.gd" id="2_critter"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_main")
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 540.0
+offset_bottom = 960.0
+color = Color(0.97, 0.94, 0.88, 1)
+
+[node name="HavenRoom" type="Node2D" parent="."]
+
+[node name="RoundWovenRug" type="ColorRect" parent="HavenRoom"]
+offset_left = 120.0
+offset_top = 550.0
+offset_right = 420.0
+offset_bottom = 750.0
+color = Color(0.85, 0.75, 0.62, 1)
+
+[node name="WickerBasket" type="ColorRect" parent="HavenRoom"]
+offset_left = 40.0
+offset_top = 650.0
+offset_right = 110.0
+offset_bottom = 720.0
+color = Color(0.72, 0.58, 0.42, 1)
+
+[node name="PottedMonstera" type="ColorRect" parent="HavenRoom"]
+offset_left = 420.0
+offset_top = 600.0
+offset_right = 490.0
+offset_bottom = 730.0
+color = Color(0.35, 0.62, 0.42, 1)
+
+[node name="FairyLights" type="Node2D" parent="HavenRoom"]
+position = Vector2(0, 150)
+
+[node name="SunbeamParticles" type="CPUParticles2D" parent="HavenRoom"]
+position = Vector2(270, 200)
+amount = 16
+lifetime = 3.0
+emission_shape = 3
+emission_rect_extents = Vector2(200, 100)
+gravity = Vector2(0, 10)
+color = Color(1, 0.95, 0.7, 0.4)
+
+[node name="Critter" type="Node2D" parent="."]
+position = Vector2(270, 640)
+script = ExtResource("2_critter")
+
+[node name="Body" type="ColorRect" parent="Critter"]
+offset_left = -40.0
+offset_top = -60.0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.82, 0.65, 0.48, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ToastBanner" type="Label" parent="CanvasLayer"]
+offset_left = 40.0
+offset_top = 60.0
+offset_right = 500.0
+offset_bottom = 110.0
+theme_override_colors/font_color = Color(0.2, 0.15, 0.1, 1)
+theme_override_font_sizes/font_size = 20
+text = "Haven ready!"
+horizontal_alignment = 1
+vertical_alignment = 1

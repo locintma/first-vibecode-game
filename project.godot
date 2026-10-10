@@ -1,0 +1,19 @@
+config_version=5
+
+[application]
+
+config/name="First VibeCode Game - Cozy Critter Haven"
+config/features=PackedStringArray("4.3")
+run/main_scene="res://scenes/main.tscn"
+
+[display]
+
+window/size/viewport_width=540
+window/size/viewport_height=960
+window/stretch/mode="canvas_items"
+window/handheld/orientation=1
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
